@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-cgupopup',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CgupopupComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<AppComponent>) { }
 
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
+  closePop() {
+    this.dialogRef.close();
+  }
 }
