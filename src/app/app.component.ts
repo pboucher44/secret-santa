@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   number = 0;
   contactForm: FormGroup;
   states = false;
+  montant;
 
   constructor(public matDialog: MatDialog, private fb: FormBuilder, private http: HttpClient) { }
 
@@ -53,7 +54,7 @@ export class AppComponent implements OnInit {
 
   send() {
       const machin = (this.contactForm.get('contacts') as FormArray).getRawValue();
-      this.http.post<any>('https://mail-sender-secretsanta.herokuapp.com/contacts', machin)
+      this.http.post<any>('https://mail-sender-secretsanta.herokuapp.com/contacts/' + this.montant, machin)
         .subscribe(res => {
           console.log('it work', res.json());
         });
