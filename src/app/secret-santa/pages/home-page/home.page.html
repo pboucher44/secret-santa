@@ -1,0 +1,73 @@
+<div class="myBody">
+  <h1>Père noël secret</h1>
+  <div class="app">
+
+    <mat-horizontal-stepper #stepper>
+      <mat-step [stepControl]="contactForm">
+        <form [formGroup]="contactForm">
+
+          <ng-template matStepLabel>Participants</ng-template>
+          <p>Entrez le nom des participants ainsi que leurs adresses e-mail:</p>
+          <div class="infos" *ngIf="contactForm.controls['contacts']">
+            <div formArrayName="contacts"
+                 *ngFor="let contact of contactForm.controls.contacts.controls; let i = index">
+              <div [formGroupName]="i">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nom</mat-label>
+                  <input matInput type="text" class="name inputbasic" placeholder="Nom" formControlName="nom">
+                </mat-form-field>
+
+                <mat-form-field class="mail" appearance="outline">
+                  <mat-label>E-mail</mat-label>
+                  <input matInput class="inputbasic" type="text" placeholder="E-mail" formControlName="email">
+                </mat-form-field>
+
+                <button mat-fab color="primary" (click)="removeContact(i);" id="removebutton" type="button">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button disabled="true" mat-button mat-fab color="primary" type="button">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+          <button id="addbutton" (click)="newContact()" mat-fab color="primary" type="button">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-button matStepperNext mat-fab color="primary" type="button">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Envoie</ng-template>
+        <p>Entrez le montant maximum à mettre dans le cadeau:</p>
+
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Montant maximum</mat-label>
+            <input matInput [(ngModel)]="montant" class="inputbasic" pattern="[0-9]*" placeholder="Montant maximum" #myInput>
+          </mat-form-field>
+          <br><br>
+          <div class="check">
+            <input id="cgu" [checked]="states" (change)="states = !states" type="checkbox"><label for="cgu"> J’ai l’autorisation d’utiliser l’adresse e-mail des participants dans le cadre du Père noël secret</label>
+          </div>
+          <br><br>
+          <button [disabled]="!(montant && states) || !myInput.validity.valid" (click)="send()" mat-raised-button color="primary" id="send" type="button">Envoyer</button>
+        </div>
+
+        <!-- bottom button -->
+        <button mat-button matStepperPrevious mat-fab color="primary" type="button">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button><button disabled="true" mat-fab color="primary" type="button">
+          <mat-icon>add</mat-icon>
+        </button><button disabled="true" mat-button matStepperNext mat-fab color="primary" type="button">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>

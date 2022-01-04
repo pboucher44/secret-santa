@@ -1,0 +1,103 @@
+.myBody {
+  margin: 4em 5%;
+  background-color: whitesmoke;
+  border-radius: 50px;
+  border-color: whitesmoke;
+  font-family: 'Martel', serif;
+  min-height: 100%;
+}
+
+mat-horizontal-stepper {
+  background-color: whitesmoke;
+  width: 70%;
+  margin:0 auto
+}
+
+.app {
+  margin-left: 0px !important;
+}
+
+h1 {
+  margin-block-start: 0em;
+  text-align: center;
+  padding-top: 1em;
+  font-family: 'Lobster Two', cursive;
+  font-size: 3em;
+}
+
+p {
+  font-family: 'Martel', serif;
+}
+
+.app {
+  text-align: center;
+  margin-left: 5%;
+}
+
+.infos {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.name {
+  width: 8em;
+  margin-right: 1em;
+}
+
+.mat-fab .mat-button-wrapper {
+  padding: 0px !important;
+}
+
+.mail {
+  margin-left: 1em;
+}
+#removebutton {
+  background-color: red;
+  width: 3em;
+  height: 3em;
+  margin-left: 1em;
+}
+
+#addbutton {
+  width: 50px;
+  height: 50px;
+  background-color: #ff732b;
+}
+
+#send {
+  height: 50px;
+  margin-bottom: 5em;
+}
+
+label {
+  margin-right: 1em;
+}
+
+.check {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 21em;
+}
+
+footer {
+  margin: 4em 5%;
+  background-color: whitesmoke;
+  border-radius: 50px;
+  border-color: whitesmoke;
+  font-family: 'Martel', serif;
+  min-height: 4em;
+  line-height: 4em;
+  text-align: center;
+}
+
+a {
+  color: #0054ff;
+}
+
+mat-step-header {
+  width: 30%;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-flex {
+  vertical-align: middle;
+}
